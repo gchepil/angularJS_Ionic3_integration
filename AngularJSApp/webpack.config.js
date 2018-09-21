@@ -7,6 +7,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const path = require('path');
+const ROOT_PATH = path.join(__dirname, '.');
+const TARGET_PATH = path.join(ROOT_PATH, './shared');
+
+const { CheckerPlugin } = require('awesome-typescript-loader')
+
 /**
  * Env
  * Get npm lifecycle event to identify the environment
@@ -30,7 +36,9 @@ module.exports = function makeWebpackConfig() {
    * Karma will set this when it's a test build
    */
   config.entry = isTest ? void 0 : {
-    app: './src/app/app.js'
+    'ts-folder': '../shared/controller.ts',
+    app: './src/app/app.js',
+    // 'ts-folder': path.join(TARGET_PATH, './controller.js'),
   };
 
   /**
@@ -54,6 +62,10 @@ module.exports = function makeWebpackConfig() {
     // Filename for non-entry points
     // Only adds hash in build mode
     chunkFilename: isProd ? '[name].[hash].js' : '[name].bundle.js'
+  };
+
+  config.resolve = {
+    extensions: [".ts", ".tsx", ".js"]
   };
 
   /**
@@ -80,15 +92,27 @@ module.exports = function makeWebpackConfig() {
 
   // Initialize module
   config.module = {
-    rules: [{
+    rules: [
+    {
+      test: /\.ts$/,
+      // include: [TARGET_PATH],
+      loader: 'awesome-typescript-loader',
+      // loader: 'ts-loader',
+      // loader: 'babel-loader',
+      options: {
+          instance: 'ts-folder',
+      },
       // JS LOADER
       // Reference: https://github.com/babel/babel-loader
       // Transpile .js files using babel-loader
       // Compiles ES6 and ES7 into ES5 code
-      test: /\.js$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/
     }, {
+      test: /\.js$/,
+      loader: [
+        'babel-loader'
+      ],
+      exclude: /node_modules/
+    }, {  
       // CSS LOADER
       // Reference: https://github.com/webpack/css-loader
       // Allow loading css through js
@@ -167,7 +191,8 @@ module.exports = function makeWebpackConfig() {
           plugins: [autoprefixer]
         }
       }
-    })
+    }),
+    new CheckerPlugin(),
   ];
 
   // Skip rendering index.html in test mode
