@@ -93,5 +93,8 @@
             "ionic-plugin-keyboard": {},
             "phonegap-plugin-barcodescanner": {}
         }
+    },
+    "config": {
+        "ionic_webpack": "./webpack.config.js"
     }
 }

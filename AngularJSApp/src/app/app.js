@@ -1,4 +1,5 @@
 import angular from 'angular';
+import heros from '@globalShared/controller.ts';
 
 import '../style/app.css';
 
@@ -13,9 +14,11 @@ let app = () => {
 class AppCtrl {
   constructor() {
     this.url = 'https://github.com/preboot/angular-webpack';
+    this.heros = heros.getArray();
   }
 }
 
+AppCtrl.$inject = ['$log'];
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, [])
