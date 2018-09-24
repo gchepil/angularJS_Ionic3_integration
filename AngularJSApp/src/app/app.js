@@ -1,5 +1,5 @@
 import angular from 'angular';
-import HEROS from '../../../shared/controller.ts';
+import heros from '@globalShared/controller.ts';
 
 import '../style/app.css';
 
@@ -14,8 +14,7 @@ let app = () => {
 class AppCtrl {
   constructor() {
     this.url = 'https://github.com/preboot/angular-webpack';
-    console.log(5555555);
-    console.log(angular.module('test'))
+    this.heros = heros.getArray();
   }
 }
 

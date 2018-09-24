@@ -1,40 +1,31 @@
+interface HeroInt  {
+  id: number,
+  name: string,
+  img: string
+}
 
+const HEROS: HeroInt[] = [
+  { id: 11, name: "Mr. Nice", img: "https://www.shareicon.net/data/128x128/2016/09/01/822752_user_512x512.png"},
+  { id: 12, name: "Narco", img: "https://www.shareicon.net/data/128x128/2016/09/01/822762_user_512x512.png"},
+  { id: 13, name: "Bombasto", img: "https://www.shareicon.net/data/128x128/2016/09/01/822760_user_512x512.png" },
+  { id: 14, name: "Celeritas", img: "https://www.shareicon.net/data/128x128/2016/09/01/822735_user_512x512.png" },
+  { id: 15, name: "Magneta", img: "https://www.shareicon.net/data/128x128/2016/09/01/822733_user_512x512.png" },
+  { id: 16, name: "RubberMan", img: "https://www.shareicon.net/data/128x128/2016/09/01/822715_user_512x512.png" },
+  { id: 17, name: "Dynama", img: "https://www.shareicon.net/data/128x128/2016/09/01/822725_user_512x512.png" },
+  { id: 18, name: "Dr IQ", img: "https://www.shareicon.net/data/128x128/2016/09/01/822739_user_512x512.png" },
+  { id: 19, name: "Magma", img: "https://www.shareicon.net/data/128x128/2016/09/01/822737_user_512x512.png" },
+  { id: 20, name: "Tornado", img: "https://www.shareicon.net/data/128x128/2016/09/01/822731_user_512x512.png" }
+];
 
-export  const HEROS: any = [
-    { id: 11, name: "Mr. Nice" },
-    { id: 12, name: "Narco" },
-    { id: 13, name: "Bombasto" },
-    { id: 14, name: "Celeritas" },
-    { id: 15, name: "Magneta" },
-    { id: 16, name: "RubberMan" },
-    { id: 17, name: "Dynama" },
-    { id: 18, name: "Dr IQ" },
-    { id: 19, name: "Magma" },
-    { id: 20, name: "Tornado" }
-  ];
+class Hero {
+  heros: Array<any>;
+  constructor(){
+    this.heros = HEROS;
+  }
   
-// //   module.component("heros", {
-// //     template: `
-// //       <ul>
-// //         <li ng-repeat="hero in $ctrl.heros">{{ hero.name }}</li>
-// //       </ul>
-// //     `,
-// //     controller: function() {
-// //       this.heros = HEROS;
-// //     },
-// //     controllerAs: "$ctrl"
-// //   });
+  getArray() {
+    return this.heros;
+  }
+}
 
-// var myModule = function() {
-//   console.log(4234234);
-//   return true;
-// }
-
-// export default myModule;
-
-// angular.module('test', [myModule]);
-
-// const mydiv = document.createElement("div")
-// mydiv.innerHTML = 'privetyli';
-// document.body.appendChild(mydiv)
-// console.log(angular);
+export default new Hero();  

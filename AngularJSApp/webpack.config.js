@@ -8,10 +8,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
-const ROOT_PATH = path.join(__dirname, '.');
-const TARGET_PATH = path.join(ROOT_PATH, './shared');
-
-const { CheckerPlugin } = require('awesome-typescript-loader')
 
 /**
  * Env
@@ -36,9 +32,8 @@ module.exports = function makeWebpackConfig() {
    * Karma will set this when it's a test build
    */
   config.entry = isTest ? void 0 : {
-    'ts-folder': '../shared/controller.ts',
+    ts: '@globalShared/controller.ts',
     app: './src/app/app.js',
-    // 'ts-folder': path.join(TARGET_PATH, './controller.js'),
   };
 
   /**
@@ -65,7 +60,10 @@ module.exports = function makeWebpackConfig() {
   };
 
   config.resolve = {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js"],
+    alias: {
+      '@globalShared': path.resolve(__dirname, '../shared/')
+    }
   };
 
   /**
@@ -95,13 +93,7 @@ module.exports = function makeWebpackConfig() {
     rules: [
     {
       test: /\.ts$/,
-      // include: [TARGET_PATH],
       loader: 'awesome-typescript-loader',
-      // loader: 'ts-loader',
-      // loader: 'babel-loader',
-      options: {
-          instance: 'ts-folder',
-      },
       // JS LOADER
       // Reference: https://github.com/babel/babel-loader
       // Transpile .js files using babel-loader
@@ -192,7 +184,6 @@ module.exports = function makeWebpackConfig() {
         }
       }
     }),
-    new CheckerPlugin(),
   ];
 
   // Skip rendering index.html in test mode

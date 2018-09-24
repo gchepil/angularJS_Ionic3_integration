@@ -12,5 +12,9 @@
         "moduleResolution": "node",
         "sourceMap": true,
         "target": "es5",
+        "baseUrl": "./src",
+        "paths": {
+          "@globalShared/*": ["../shared/*"]
+        }
       },
 }

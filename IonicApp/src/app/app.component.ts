@@ -4,7 +4,6 @@ import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Subject } from 'rxjs/Subject';
-import { HEROS } from '../../../shared/controller';
 
 @Component({
   templateUrl: 'app.html'

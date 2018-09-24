@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import hero from '../../../../../shared/controller';
 
 @IonicPage()
 @Component({
@@ -7,11 +8,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'users.html',
 })
 export class UsersPage {
-  users = new Array(10);
+  users = hero.getArray();
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams) {
   }
-
 }
