@@ -1,0 +1,14 @@
+const path = require('path');
+const useDefaultConfig = require('@ionic/app-scripts/config/webpack.config.js');
+
+const env = process.env.IONIC_ENV;
+
+useDefaultConfig[env].resolve.extensions = ['.ts','.js'];
+
+useDefaultConfig[env].resolve.alias = {
+  '@globalShared': path.resolve('../shared/')
+};
+
+module.exports = function () {
+  return useDefaultConfig;
+};
