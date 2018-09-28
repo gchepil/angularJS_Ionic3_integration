@@ -6,7 +6,7 @@ const env = process.env.IONIC_ENV;
 useDefaultConfig[env].resolve.extensions = ['.ts','.js'];
 
 useDefaultConfig[env].resolve.alias = {
-  '@globalShared': path.resolve('../shared/')
+  '@shared': path.resolve('../shared')
 };
 
 module.exports = function () {
