@@ -1,9 +1,10 @@
 import angular from 'angular';
 import heros from '@globalShared/controller.ts';
+import AnotherController from './anotherController';
 
 import './style/app.css';
 
-let app = () => {
+let appDirective = () => {
   return {
     template: require('./app.html'),
     controller: 'AppCtrl',
@@ -18,11 +19,19 @@ class AppCtrl {
   }
 }
 
+class TestCtrla {
+  constructor() {
+    this.word = 'privet';
+  }
+}
+
 AppCtrl.$inject = ['$log'];
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, [])
-  .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
+  .directive('appDirective', appDirective)
+  .controller('AppCtrl', AppCtrl)
+  .controller('AnotherCtrl', AnotherController)
+  
 
 export default MODULE_NAME;
