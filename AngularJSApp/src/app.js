@@ -1,7 +1,7 @@
 import angular from 'angular';
 import heros from '@globalShared/controller.ts';
 
-import '../style/app.css';
+import './style/app.css';
 
 let app = () => {
   return {
