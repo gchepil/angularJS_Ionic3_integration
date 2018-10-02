@@ -1,10 +1,6 @@
-interface HeroInt  {
-  id: number,
-  name: string,
-  img: string
-}
+import hero from './interfaces/hero';
 
-const HEROS: HeroInt[] = [
+const HEROS: hero[] = [
   { id: 11, name: "Mr. Nice", img: "https://www.shareicon.net/data/128x128/2016/09/01/822752_user_512x512.png"},
   { id: 12, name: "Narco", img: "https://www.shareicon.net/data/128x128/2016/09/01/822762_user_512x512.png"},
   { id: 13, name: "Bombasto", img: "https://www.shareicon.net/data/128x128/2016/09/01/822760_user_512x512.png" },
@@ -18,7 +14,7 @@ const HEROS: HeroInt[] = [
 ];
 
 class Hero {
-  heros: Array<any>;
+  heros: hero[];
   constructor(){
     this.heros = HEROS;
   }

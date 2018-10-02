@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import heros from '@globalShared/controller';
+import hero from '@globalShared/interfaces/hero';
 import './style/app.css';
 
 @Component({
@@ -9,7 +10,7 @@ import './style/app.css';
 
 class AppCtrl {
   public url: string;
-  public heros: Array<any>;
+  public heros: hero[];
 
   constructor() {
     this.url = 'https://github.com/preboot/angular-webpack';
