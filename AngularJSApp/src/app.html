@@ -1,0 +1,17 @@
+<main>
+  <h1 class="title">Hello from Angular !</h1>
+  <img src="img/logo.png">
+  <br />
+  <a href="{{url}}">Webpack Angular Starter</a>
+</main>
+<footer>
+
+  <div *ngFor="let hero of heros" style="float: left;">
+    <img src="{{hero.img}}" />
+    <h2>{{hero.name}}</h2>
+    <p>{{hero.id}} </p>
+  </div>
+
+  <another-component></another-component>
+
+</footer>
