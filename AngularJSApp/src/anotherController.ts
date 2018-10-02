@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 
 class AnotherController {
   public word: string;
-  
+
   constructor() {
     this.word = 'Hello from another controller';
   }
