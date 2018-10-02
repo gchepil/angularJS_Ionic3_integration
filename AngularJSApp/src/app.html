@@ -2,18 +2,16 @@
   <h1 class="title">Hello from Angular !</h1>
   <img src="img/logo.png">
   <br />
-  <a ng-href="{{app.url}}">Webpack Angular Starter</a>
+  <a href="{{url}}">Webpack Angular Starter</a>
 </main>
 <footer>
 
-  <div ng-repeat="hero in app.heros" style="float: left;">
-    <img ng-src="{{hero.img}}" />
+  <div *ngFor="let hero of heros" style="float: left;">
+    <img src="{{hero.img}}" />
     <h2>{{hero.name}}</h2>
     <p>{{hero.id}} </p>
   </div>
 
-  <div ng-controller="AnotherCtrl as another">
-    {{another.word}}
-  </div>
+  <another-component></another-component>
 
 </footer>

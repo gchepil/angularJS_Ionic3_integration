@@ -33,7 +33,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.entry = isTest ? void 0 : {
     ts: '@globalShared/controller.ts',
-    app: './src/app.ts',
+    app: './src/main.ts',
   };
 
   /**
