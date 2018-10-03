@@ -12,14 +12,13 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-    "baseUrl": "/",
+    "baseUrl": "./src",
     "paths": {
-      "@shared/*": ["../shared/*"]
+      "@globalShared/*": ["../shared/*"]
     }
   },
   "include": [
-    "src/**/*.ts",
-    "../shared/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

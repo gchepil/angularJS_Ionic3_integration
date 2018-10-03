@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import hero from '@shared/controller';
+import hero from '@globalShared/controller.ts';
 
 @IonicPage()
 @Component({

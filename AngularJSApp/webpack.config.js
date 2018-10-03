@@ -33,7 +33,7 @@ module.exports = function makeWebpackConfig() {
    */
   config.entry = isTest ? void 0 : {
     ts: '@globalShared/controller.ts',
-    app: './src/main.ts',
+    app: './src/app/app.js',
   };
 
   /**
@@ -192,7 +192,7 @@ module.exports = function makeWebpackConfig() {
     // Render index.html
     config.plugins.push(
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './src/public/index.html',
         inject: 'body'
       }),
 
@@ -221,7 +221,7 @@ module.exports = function makeWebpackConfig() {
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
       new CopyWebpackPlugin([{
-        from: __dirname + '/src/'
+        from: __dirname + '/src/public'
       }])
     )
   }
@@ -232,7 +232,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
   config.devServer = {
-    contentBase: './src/',
+    contentBase: './src/public',
     stats: 'minimal',
     host: '0.0.0.0'
   };
