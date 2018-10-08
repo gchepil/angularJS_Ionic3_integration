@@ -96,6 +96,7 @@
     },
     "config": {
         "ionic_source_map_type": "source-map",
-        "ionic_webpack": "./webpack.config.js"
+        "ionic_webpack": "./webpack.config.js",
+        "ionic_watch": "./watch.config.js"
     }
 }
